@@ -1,11 +1,10 @@
-﻿
-using System;
+﻿using System;
 
 namespace AdventOfCode7
 {
-    class A16
+    internal class A16
     {
-        static void Main()
+        private static void Main()
         {
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16atest.txt");
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16.txt");
@@ -53,14 +52,9 @@ namespace AdventOfCode7
                         }
                     }
                 }
-
             }
 
-
             Console.WriteLine(ticketScanningErrorRate);
-
-
-
         }
     }
 }

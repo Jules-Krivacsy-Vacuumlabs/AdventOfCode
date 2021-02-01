@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AdventOfCode7
 {
-    class A24
+    internal class A24
     {
-        static void Main()
+        private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24atest.txt");
@@ -32,24 +32,30 @@ namespace AdventOfCode7
                             current.X--;
                             current.Y--;
                             break;
+
                         case '2':
                             current.X--;
                             current.Y++;
                             break;
+
                         case '3':
                             current.X++;
                             current.Y--;
                             break;
+
                         case '4':
                             current.X++;
                             current.Y++;
                             break;
+
                         case 'w':
                             current.Y -= 2;
                             break;
+
                         case 'e':
                             current.Y += 2;
                             break;
+
                         default:
                             Console.WriteLine("ERROR");
                             break;
@@ -77,7 +83,7 @@ namespace AdventOfCode7
             Console.WriteLine(numberOfBlacks);
         }
 
-        class Point
+        private class Point
         {
             public Point(int x, int y)
             {
@@ -88,11 +94,11 @@ namespace AdventOfCode7
             public int X { get; set; }
             public int Y { get; set; }
 
-
             public override int GetHashCode()
             {
                 return X * 100000 + Y;
             }
+
             public override bool Equals(object obj)
             {
                 return Equals(obj as Point);

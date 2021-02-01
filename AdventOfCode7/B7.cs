@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode7
 {
-    class B7
+    internal class B7
     {
-        class InsideOfABag
+        private class InsideOfABag
         {
             public string name;
             public int number;
@@ -17,7 +16,8 @@ namespace AdventOfCode7
                 number = numberInside;
             }
         }
-        static void Main()
+
+        private static void Main()
         {
             string target = "shiny gold";
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
@@ -71,9 +71,7 @@ namespace AdventOfCode7
                         temp.Add(item);
                     }
                     map.Add(container, temp);
-
                 }
-
             }
 
             //walking trough the graph
@@ -82,11 +80,10 @@ namespace AdventOfCode7
 
             Console.WriteLine(ret);
 
-
             //C:\Users\JulesWin10\Desktop\AdventOfCode
         }
 
-        static int LevelDownCalculator(string target, Dictionary<string, List<InsideOfABag>> map)
+        private static int LevelDownCalculator(string target, Dictionary<string, List<InsideOfABag>> map)
         {
             int ret = 0;
             if (map.ContainsKey(target))
@@ -108,8 +105,4 @@ namespace AdventOfCode7
             return 0;
         }
     }
-
-
-
-
 }

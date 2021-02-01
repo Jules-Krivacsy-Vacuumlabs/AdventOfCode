@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace AdventOfCode7
 {
-    class B16
+    internal class B16
     {
-        static void Main()
+        private static void Main()
         {
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16btest.txt");
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16.txt");
@@ -109,8 +109,6 @@ namespace AdventOfCode7
                 {
                     foundStack.Push(field);
                 }
-
-
             }
             while (foundStack.Count != 0)
             {
@@ -140,18 +138,20 @@ namespace AdventOfCode7
             Console.WriteLine(ret);
         }
 
-        class Field
+        private class Field
         {
-            string name;
-            int startA;
-            int endA;
-            int startB;
-            int endB;
-            Boolean[] invalid;
+            private string name;
+            private int startA;
+            private int endA;
+            private int startB;
+            private int endB;
+            private Boolean[] invalid;
+
             public int CountValidPositions()
             {
                 return invalid.Count(x => x == false);
             }
+
             public int FirstValidPositionIndex()
             {
                 int i = 0;
@@ -165,6 +165,7 @@ namespace AdventOfCode7
                 }
                 return -1;
             }
+
             public string Name { get => name; set => name = value; }
             public int StartA { get => startA; set => startA = value; }
             public int EndA { get => endA; set => endA = value; }
