@@ -2,9 +2,9 @@
 
 namespace AdventOfCode7
 {
-    class B18
+    internal class B18
     {
-        static string Solver(string input)
+        private static string Solver(string input)
         {
             long ret = -1;
             var nonMulti = input.Split('*');
@@ -30,11 +30,11 @@ namespace AdventOfCode7
             }
             return ret.ToString();
         }
-        static void Main()
+
+        private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18atest.txt");
-
 
             long ret = 0;
 
@@ -63,7 +63,6 @@ namespace AdventOfCode7
                 spaceless = Solver(spaceless);
                 Console.WriteLine(spaceless);
                 ret += Convert.ToInt64(spaceless);
-
             }
             Console.WriteLine(ret);
         }

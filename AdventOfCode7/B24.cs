@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AdventOfCode7
 {
-    class B24
+    internal class B24
     {
-        static void Main()
+        private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24atest.txt");
@@ -32,24 +32,30 @@ namespace AdventOfCode7
                             current.X--;
                             current.Y--;
                             break;
+
                         case '2':
                             current.X--;
                             current.Y++;
                             break;
+
                         case '3':
                             current.X++;
                             current.Y--;
                             break;
+
                         case '4':
                             current.X++;
                             current.Y++;
                             break;
+
                         case 'w':
                             current.Y -= 2;
                             break;
+
                         case 'e':
                             current.Y += 2;
                             break;
+
                         default:
                             Console.WriteLine("ERROR");
                             break;
@@ -106,21 +112,18 @@ namespace AdventOfCode7
                         nextFloor.Add(point);
                     }
 
-                    //check all adjecent whites if they have exactly 2 black neightbors                   
+                    //check all adjecent whites if they have exactly 2 black neightbors
                     White2Black(lastFloor, nextFloor, point, 0, 2);
                     White2Black(lastFloor, nextFloor, point, 0, -2);
                     White2Black(lastFloor, nextFloor, point, -1, -1);
                     White2Black(lastFloor, nextFloor, point, -1, 1);
                     White2Black(lastFloor, nextFloor, point, 1, -1);
                     White2Black(lastFloor, nextFloor, point, 1, 1);
-
                 }
-
 
                 lastFloor = nextFloor;
                 Console.WriteLine("Day " + (time + 1) + ": " + nextFloor.Count);
             }
-
         }
 
         private static void White2Black(HashSet<Point> lastFloor, HashSet<Point> nextFloor, Point point, int offsetX, int offsetY)
@@ -143,7 +146,7 @@ namespace AdventOfCode7
             }
         }
 
-        class Point
+        private class Point
         {
             public Point(int x, int y)
             {
@@ -154,11 +157,11 @@ namespace AdventOfCode7
             public int X { get; set; }
             public int Y { get; set; }
 
-
             public override int GetHashCode()
             {
                 return X * 100000 + Y;
             }
+
             public override bool Equals(object obj)
             {
                 return Equals(obj as Point);

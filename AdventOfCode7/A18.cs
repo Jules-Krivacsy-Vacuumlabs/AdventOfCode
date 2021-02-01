@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace AdventOfCode7
 {
-    class A18
+    internal class A18
     {
-        static void Main()
+        private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18atest.txt");
@@ -36,19 +36,16 @@ namespace AdventOfCode7
                                 if (lastNum == "")
                                 {
                                     lastNum = currentNum;
-
                                 }
                                 else
                                 {
                                     if (lastOperator == "+")
                                     {
                                         lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNum)).ToString();
-
                                     }
                                     else if (lastOperator == "*")
                                     {
                                         lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNum)).ToString();
-
                                     }
                                 }
                                 if (c == ')')
@@ -75,12 +72,10 @@ namespace AdventOfCode7
                             if (lastOperator == "+")
                             {
                                 lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNum)).ToString();
-
                             }
                             else if (lastOperator == "*")
                             {
                                 lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNum)).ToString();
-
                             }
                             currentNum = "";
                             lastOperator = "";
@@ -100,18 +95,9 @@ namespace AdventOfCode7
                         parts.RemoveAt(i);
                         i--;
                     }
-
-
-
                 }
-
             }
             Console.WriteLine(ret);
-
-
-
-
-
         }
     }
 }

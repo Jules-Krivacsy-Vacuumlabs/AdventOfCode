@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode7
 {
-    class A7
+    internal class A7
     {
-        static void Main()
+        private static void Main()
         {
             string target = "shiny gold";
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
@@ -69,10 +68,7 @@ namespace AdventOfCode7
                             map.Add(item, temp);
                         }
                     }
-
-
                 }
-
             }
 
             //walking trough the graph
@@ -96,7 +92,6 @@ namespace AdventOfCode7
                 }
             }
             Console.WriteLine(reachable.Count);
-
 
             //C:\Users\JulesWin10\Desktop\AdventOfCode
         }
