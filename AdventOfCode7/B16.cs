@@ -8,8 +8,8 @@ namespace AdventOfCode7
     {
         private static void Main()
         {
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16btest.txt");
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16.txt");
+            //string[] text = System.IO.File.ReadAllLines(@"Input\input16btest.txt");
+            string[] text = System.IO.File.ReadAllLines(@"Input\input16.txt");
 
             Boolean[] valid = new Boolean[1000];
             int section = 0;

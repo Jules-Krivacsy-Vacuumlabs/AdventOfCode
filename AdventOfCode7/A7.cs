@@ -8,8 +8,8 @@ namespace AdventOfCode7
         private static void Main()
         {
             string target = "shiny gold";
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7test.txt");
+            string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
+            //string[] text = System.IO.File.ReadAllLines(@"Input\input7test.txt");
             Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
             //dark olive bags contain 3 faded blue bags, 4 dotted black bags.
             foreach (string line in text)
@@ -92,8 +92,6 @@ namespace AdventOfCode7
                 }
             }
             Console.WriteLine(reachable.Count);
-
-            //C:\Users\JulesWin10\Desktop\AdventOfCode
         }
     }
 }

@@ -20,8 +20,8 @@ namespace AdventOfCode7
         private static void Main()
         {
             string target = "shiny gold";
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
+            //string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
+            string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
             Dictionary<string, List<InsideOfABag>> map = new Dictionary<string, List<InsideOfABag>>();
             //dark olive bags contain 3 faded blue bags, 4 dotted black bags.
             foreach (string line in text)
@@ -79,8 +79,6 @@ namespace AdventOfCode7
             int ret = LevelDownCalculator(target, map) - 1;
 
             Console.WriteLine(ret);
-
-            //C:\Users\JulesWin10\Desktop\AdventOfCode
         }
 
         private static int LevelDownCalculator(string target, Dictionary<string, List<InsideOfABag>> map)

@@ -33,8 +33,8 @@ namespace AdventOfCode7
 
         private static void Main()
         {
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18atest.txt");
+            string[] text = System.IO.File.ReadAllLines(@"Input\input18.txt");
+            //string[] text = System.IO.File.ReadAllLines(@"Input\input18atest.txt");
 
             long ret = 0;
 

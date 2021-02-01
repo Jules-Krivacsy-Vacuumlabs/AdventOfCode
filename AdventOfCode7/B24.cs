@@ -7,8 +7,8 @@ namespace AdventOfCode7
     {
         private static void Main()
         {
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24atest.txt");
+            string[] text = System.IO.File.ReadAllLines(@"Input\input24.txt");
+            //string[] text = System.IO.File.ReadAllLines(@"Input\input24atest.txt");
             /*
             CENTRE IS 0,0
             se
