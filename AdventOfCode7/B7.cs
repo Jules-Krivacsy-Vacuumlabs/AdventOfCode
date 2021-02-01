@@ -17,7 +17,7 @@ namespace AdventOfCode7
                 number = numberInside;
             }
         }
-        static void Main(string[] args)
+        static void Main()
         {
             string target = "shiny gold";
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
@@ -78,8 +78,8 @@ namespace AdventOfCode7
 
             //walking trough the graph
 
-            int ret = LevelDownCalculator(target, map)-1;
-                        
+            int ret = LevelDownCalculator(target, map) - 1;
+
             Console.WriteLine(ret);
 
 
@@ -91,7 +91,7 @@ namespace AdventOfCode7
             int ret = 0;
             if (map.ContainsKey(target))
             {
-                foreach(InsideOfABag bag in map[target])
+                foreach (InsideOfABag bag in map[target])
                 {
                     int howManyInside = LevelDownCalculator(bag.name, map);
                     if (howManyInside > 0)
@@ -103,13 +103,13 @@ namespace AdventOfCode7
                         ret += bag.number;
                     }
                 }
-                return ret+1;
+                return ret + 1;
             }
             return 0;
         }
     }
 
-    
 
-    
+
+
 }

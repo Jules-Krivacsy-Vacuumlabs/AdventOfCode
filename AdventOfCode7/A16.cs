@@ -1,19 +1,18 @@
 ﻿
 using System;
-using System.Collections.Generic;
 
 namespace AdventOfCode7
 {
     class A16
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16atest.txt");
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16.txt");
 
             int[] valid = new int[1000];
             int section = 0;
-            int ticketScanningErrorRate =0;
+            int ticketScanningErrorRate = 0;
             foreach (string line in text)
             {
                 if (line == "")
@@ -41,9 +40,9 @@ namespace AdventOfCode7
                     }
                     else if (section == 2)
                     {
-                        if(line!= "nearby tickets:")
+                        if (line != "nearby tickets:")
                         {
-                            foreach(string str in line.Split(','))
+                            foreach (string str in line.Split(','))
                             {
                                 int num = Convert.ToInt32(str);
                                 if (valid[num] == 0)

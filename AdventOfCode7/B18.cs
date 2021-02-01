@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode7
 {
@@ -33,7 +30,7 @@ namespace AdventOfCode7
             }
             return ret.ToString();
         }
-        static void Main(string[] args)
+        static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18atest.txt");
@@ -49,8 +46,8 @@ namespace AdventOfCode7
                 int openingBracket0 = spaceless.IndexOf('(');
                 while (spaceless.Contains(")"))
                 {
-                    int openingBracket1 = spaceless.Substring(openingBracket0 + 1).IndexOf('(');
-                    int closingBracket = spaceless.Substring(openingBracket0 + 1).IndexOf(')');
+                    int openingBracket1 = spaceless[(openingBracket0 + 1)..].IndexOf('(');
+                    int closingBracket = spaceless[(openingBracket0 + 1)..].IndexOf(')');
                     //we openning a new one
                     if ((openingBracket1 >= 0) && (openingBracket1 < closingBracket))
                     {
@@ -59,7 +56,7 @@ namespace AdventOfCode7
                     //we closing the previous one
                     else
                     {
-                        spaceless = spaceless.Substring(0, openingBracket0) + Solver(spaceless[(openingBracket0 + 1)..(closingBracket + openingBracket0 + 1)]) + spaceless.Substring(closingBracket + openingBracket0 + 2);
+                        spaceless = spaceless.Substring(0, openingBracket0) + Solver(spaceless[(openingBracket0 + 1)..(closingBracket + openingBracket0 + 1)]) + spaceless[(closingBracket + openingBracket0 + 2)..];
                         openingBracket0 = spaceless.IndexOf('(');
                     }
                 }

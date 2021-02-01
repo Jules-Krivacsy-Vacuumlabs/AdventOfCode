@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AdventOfCode7
 {
     class A24
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24atest.txt");
@@ -92,7 +91,7 @@ namespace AdventOfCode7
 
             public override int GetHashCode()
             {
-                return X*100000+Y;
+                return X * 100000 + Y;
             }
             public override bool Equals(object obj)
             {

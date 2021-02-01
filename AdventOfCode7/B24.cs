@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AdventOfCode7
 {
     class B24
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input24atest.txt");
@@ -77,7 +76,6 @@ namespace AdventOfCode7
             }
 
             //GAME OF LIFE
-            int day = 0;
             //we plan to store only blacks
             //remove whites from floor
             foreach (var key in floor.Keys)

@@ -1,12 +1,12 @@
-﻿using System.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode7
 {
     class B16
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16btest.txt");
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input16.txt");
@@ -25,8 +25,10 @@ namespace AdventOfCode7
                 {
                     if (section == 0)
                     {
-                        Field field = new Field();
-                        field.Name = line.Split(": ")[0];
+                        Field field = new Field
+                        {
+                            Name = line.Split(": ")[0]
+                        };
                         string part = line.Split(": ")[1];
                         string[] parts = part.Split(" or ");
                         field.StartA = Convert.ToInt32(parts[0].Split('-')[0]);
@@ -107,7 +109,7 @@ namespace AdventOfCode7
                 {
                     foundStack.Push(field);
                 }
-                
+
 
             }
             while (foundStack.Count != 0)
@@ -116,7 +118,7 @@ namespace AdventOfCode7
                 int indexOfFound = field.FirstValidPositionIndex();
                 foreach (var tempField in fields)
                 {
-                    if ((!tempField.Invalidity[indexOfFound])&&(tempField != field))
+                    if ((!tempField.Invalidity[indexOfFound]) && (tempField != field))
                     {
                         tempField.Invalidity[indexOfFound] = true;
                         if (tempField.CountValidPositions() == 1)
@@ -126,14 +128,14 @@ namespace AdventOfCode7
                     }
                 }
             }
-            foreach(var field in fields)
+            foreach (var field in fields)
             {
-                Console.WriteLine(field.Name+" "+field.FirstValidPositionIndex()+" Is it okey: "+field.CountValidPositions());
+                Console.WriteLine(field.Name + " " + field.FirstValidPositionIndex() + " Is it okey: " + field.CountValidPositions());
             }
             long ret = tickets[0][fields[0].FirstValidPositionIndex()];
-            for(int i = 1; i < 6; i++)
+            for (int i = 1; i < 6; i++)
             {
-                ret*= tickets[0][fields[i].FirstValidPositionIndex()];
+                ret *= tickets[0][fields[i].FirstValidPositionIndex()];
             }
             Console.WriteLine(ret);
         }
@@ -153,7 +155,7 @@ namespace AdventOfCode7
             public int FirstValidPositionIndex()
             {
                 int i = 0;
-                foreach(var item in invalid)
+                foreach (var item in invalid)
                 {
                     if (!item)
                     {

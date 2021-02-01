@@ -6,7 +6,7 @@ namespace AdventOfCode7
 {
     class A7
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string target = "shiny gold";
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input7.txt");
@@ -19,7 +19,7 @@ namespace AdventOfCode7
                 string container = line.Split(" bags contain ")[0];
                 //3 faded blue bags, 4 dotted black bags.
                 string part = line.Split(" bags contain ")[1];
-                
+
                 if (!part.Equals("no other bags."))
                 {
                     List<string> contains = new List<string>();
@@ -31,7 +31,7 @@ namespace AdventOfCode7
                         string contain = "";
                         int spaceCounter = 0;
                         foreach (char c in inside)
-                        {          
+                        {
                             if (Char.IsLetter(c))
                             {
                                 contain += c;
@@ -62,19 +62,21 @@ namespace AdventOfCode7
                         }
                         else
                         {
-                            List<string> temp = new List<string>();
-                            temp.Add(container);
+                            List<string> temp = new List<string>
+                            {
+                                container
+                            };
                             map.Add(item, temp);
                         }
                     }
 
-                    
+
                 }
 
             }
 
             //walking trough the graph
-            
+
             List<string> reachable = new List<string>();
             Stack<string> remaining = new Stack<string>();
             remaining.Push(target);
@@ -83,7 +85,7 @@ namespace AdventOfCode7
                 string current = remaining.Pop();
                 if (map.ContainsKey(current))
                 {
-                    foreach(string source in map[current])
+                    foreach (string source in map[current])
                     {
                         if (!reachable.Contains(source))
                         {

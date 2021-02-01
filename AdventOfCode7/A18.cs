@@ -6,12 +6,12 @@ namespace AdventOfCode7
 {
     class A18
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18.txt");
             //string[] text = System.IO.File.ReadAllLines(@"C:\Users\JulesWin10\Desktop\AdventOfCode\input18atest.txt");
 
-            long ret =0;
+            long ret = 0;
 
             foreach (string line in text)
             {
@@ -104,7 +104,7 @@ namespace AdventOfCode7
 
 
                 }
-                
+
             }
             Console.WriteLine(ret);
 
