@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AdventOfCode7
+namespace AdventOfCode
 {
     internal class A24
     {

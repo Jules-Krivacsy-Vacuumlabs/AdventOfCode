@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode7
+namespace AdventOfCode
 {
     internal class B16
     {

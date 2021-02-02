@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdventOfCode7
+namespace AdventOfCode
 {
     internal class B18
     {

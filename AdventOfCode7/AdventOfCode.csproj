@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>AdventOfCode7.B24</StartupObject>
+    <StartupObject>AdventOfCode.B24</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
