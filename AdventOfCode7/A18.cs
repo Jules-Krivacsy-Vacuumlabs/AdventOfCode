@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace AdventOfCode
 {
-    internal class A18
+    internal static class A18
     {
         private static void Main()
         {
             //Changing comment
             string[] text = System.IO.File.ReadAllLines(@"Input\input18.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input18atest.txt");
 
             long ret = 0;
 
@@ -30,7 +30,7 @@ namespace AdventOfCode
                         {
                             if (Char.IsDigit(c))
                             {
-                                currentNum += c;
+                                currentNum = new StringBuilder(currentNum).Append(c).ToString();
                             }
                             else if (c == '+' || c == '*' || c == ')')
                             {
@@ -52,7 +52,7 @@ namespace AdventOfCode
                                 if (c == ')')
                                 {
                                     lastOperator = "";
-                                    rest += " ";
+                                    rest = new StringBuilder(rest).Append(" ").ToString();
                                 }
                                 else
                                 {
@@ -63,7 +63,8 @@ namespace AdventOfCode
                         }
                         else
                         {
-                            rest += c;
+                            StringBuilder sb = new StringBuilder(rest);
+                            rest = sb.Append(c).ToString();
                         }
                     }
                     if (rest == "")
@@ -78,12 +79,10 @@ namespace AdventOfCode
                             {
                                 lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNum)).ToString();
                             }
-                            currentNum = "";
                             lastOperator = "";
                             if (parts.Count == 1)
                             {
                                 ret += Convert.ToInt64(lastNum);
-                                //Console.WriteLine(lastNum);
                                 break;
                             }
                         }
@@ -92,7 +91,10 @@ namespace AdventOfCode
                     }
                     else
                     {
-                        parts[i - 1] = parts[i - 1] + lastNum + lastOperator + rest;
+                        parts[i - 1] = new StringBuilder(parts[i - 1]).Append(lastNum)
+                                                                      .Append(lastOperator)
+                                                                      .Append(rest)
+                                                                      .ToString();
                         parts.RemoveAt(i);
                         i--;
                     }

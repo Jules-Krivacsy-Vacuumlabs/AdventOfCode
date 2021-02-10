@@ -2,7 +2,7 @@
 
 namespace AdventOfCode
 {
-    internal class B18
+    internal static class B18
     {
         private static string Solver(string input)
         {
@@ -34,7 +34,6 @@ namespace AdventOfCode
         private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input18.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input18atest.txt");
 
             long ret = 0;
 

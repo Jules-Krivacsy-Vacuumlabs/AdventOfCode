@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace AdventOfCode
 {
@@ -20,7 +21,6 @@ namespace AdventOfCode
         private static void Main()
         {
             string target = "shiny gold";
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
             string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
             Dictionary<string, List<InsideOfABag>> map = new Dictionary<string, List<InsideOfABag>>();
             //dark olive bags contain 3 faded blue bags, 4 dotted black bags.
@@ -46,7 +46,8 @@ namespace AdventOfCode
                         {
                             if (Char.IsLetter(c))
                             {
-                                nameInside += c;
+                                StringBuilder sb = new StringBuilder(nameInside);
+                                nameInside = sb.Append(c).ToString();
                             }
                             else if (c == ' ')
                             {
@@ -57,7 +58,8 @@ namespace AdventOfCode
                                 }
                                 else if (spaceCounter == 2)
                                 {
-                                    nameInside += c;
+                                    StringBuilder sb = new StringBuilder(nameInside);
+                                    nameInside = sb.Append(c).ToString();
                                 }
                             }
                         }

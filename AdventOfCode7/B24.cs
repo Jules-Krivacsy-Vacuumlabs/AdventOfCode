@@ -8,7 +8,6 @@ namespace AdventOfCode
         private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input24.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input24atest.txt");
             /*
             CENTRE IS 0,0
             se
@@ -146,7 +145,7 @@ namespace AdventOfCode
             }
         }
 
-        private class Point
+        private class Point : IEquatable<Point>
         {
             public Point(int x, int y)
             {
@@ -167,9 +166,9 @@ namespace AdventOfCode
                 return Equals(obj as Point);
             }
 
-            public bool Equals(Point obj)
+            public bool Equals(Point other)
             {
-                return obj != null && obj.X == this.X && obj.Y == this.Y;
+                return other != null && other.X == this.X && other.Y == this.Y;
             }
 
             public override string ToString()

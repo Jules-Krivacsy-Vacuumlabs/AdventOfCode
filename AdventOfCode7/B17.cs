@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventOfCode
 {
@@ -8,7 +9,6 @@ namespace AdventOfCode
         private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input17.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input17atest.txt");
             /*
             CENTRE IS 0,0
             */
@@ -94,7 +94,7 @@ namespace AdventOfCode
             }
         }
 
-        private class Point4D
+        private class Point4D : IEquatable<Point4D>
         {
             public Point4D(int x, int y, int z, int w)
             {
@@ -119,9 +119,11 @@ namespace AdventOfCode
                 return Equals(obj as Point4D);
             }
 
-            public bool Equals(Point4D obj)
+            public bool Equals([AllowNull] Point4D other)
             {
-                return obj is Point4D && (obj.X, obj.Y, obj.Z, obj.W).Equals((X, Y, Z, W));
+                if (other != null)
+                    return (other.X, other.Y, other.Z, other.W).Equals((X, Y, Z, W));
+                return false;
             }
 
             public override string ToString()

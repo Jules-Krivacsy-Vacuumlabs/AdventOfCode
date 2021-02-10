@@ -2,11 +2,10 @@
 
 namespace AdventOfCode
 {
-    internal class A16
+    internal static class A16
     {
         private static void Main()
         {
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input16atest.txt");
             string[] text = System.IO.File.ReadAllLines(@"Input\input16.txt");
 
             int[] valid = new int[1000];
@@ -37,17 +36,14 @@ namespace AdventOfCode
                             valid[i]++;
                         }
                     }
-                    else if (section == 2)
+                    else if (section == 2 && line != "nearby tickets:")
                     {
-                        if (line != "nearby tickets:")
+                        foreach (string str in line.Split(','))
                         {
-                            foreach (string str in line.Split(','))
+                            int num = Convert.ToInt32(str);
+                            if (valid[num] == 0)
                             {
-                                int num = Convert.ToInt32(str);
-                                if (valid[num] == 0)
-                                {
-                                    ticketScanningErrorRate += num;
-                                }
+                                ticketScanningErrorRate += num;
                             }
                         }
                     }

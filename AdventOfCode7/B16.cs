@@ -8,7 +8,6 @@ namespace AdventOfCode
     {
         private static void Main()
         {
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input16btest.txt");
             string[] text = System.IO.File.ReadAllLines(@"Input\input16.txt");
 
             Boolean[] valid = new Boolean[1000];
@@ -58,25 +57,22 @@ namespace AdventOfCode
                             tickets.Add(ticket);
                         }
                     }
-                    else if (section == 2)
+                    else if (section == 2 && line != "nearby tickets:")
                     {
-                        if (line != "nearby tickets:")
+                        List<int> ticket = new List<int>();
+                        Boolean ticketErrorFound = false;
+                        foreach (string str in line.Split(','))
                         {
-                            List<int> ticket = new List<int>();
-                            Boolean ticketErrorFound = false;
-                            foreach (string str in line.Split(','))
+                            int num = Convert.ToInt32(str);
+                            if (!valid[num])
                             {
-                                int num = Convert.ToInt32(str);
-                                if (valid[num] == false)
-                                {
-                                    ticketErrorFound = true;
-                                }
-                                ticket.Add(num);
+                                ticketErrorFound = true;
                             }
-                            if (!ticketErrorFound)
-                            {
-                                tickets.Add(ticket);
-                            }
+                            ticket.Add(num);
+                        }
+                        if (!ticketErrorFound)
+                        {
+                            tickets.Add(ticket);
                         }
                     }
                 }
@@ -140,22 +136,15 @@ namespace AdventOfCode
 
         private class Field
         {
-            private string name;
-            private int startA;
-            private int endA;
-            private int startB;
-            private int endB;
-            private Boolean[] invalid;
-
             public int CountValidPositions()
             {
-                return invalid.Count(x => x == false);
+                return Invalidity.Count(x => !x);
             }
 
             public int FirstValidPositionIndex()
             {
                 int i = 0;
-                foreach (var item in invalid)
+                foreach (var item in Invalidity)
                 {
                     if (!item)
                     {
@@ -166,12 +155,12 @@ namespace AdventOfCode
                 return -1;
             }
 
-            public string Name { get => name; set => name = value; }
-            public int StartA { get => startA; set => startA = value; }
-            public int EndA { get => endA; set => endA = value; }
-            public int StartB { get => startB; set => startB = value; }
-            public int EndB { get => endB; set => endB = value; }
-            public bool[] Invalidity { get => invalid; set => invalid = value; }
+            public string Name { get; set; }
+            public int StartA { get; set; }
+            public int EndA { get; set; }
+            public int StartB { get; set; }
+            public int EndB { get; set; }
+            public bool[] Invalidity { get; set; }
         }
     }
 }

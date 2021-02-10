@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace AdventOfCode
 {
-    internal class A7
+    internal static class A7
     {
         private static void Main()
         {
             string target = "shiny gold";
             string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input7test.txt");
             Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
             //dark olive bags contain 3 faded blue bags, 4 dotted black bags.
             foreach (string line in text)
@@ -33,7 +33,7 @@ namespace AdventOfCode
                         {
                             if (Char.IsLetter(c))
                             {
-                                contain += c;
+                                contain = new StringBuilder(contain).Append(c).ToString();
                             }
                             else if (c == ' ')
                             {
@@ -44,7 +44,7 @@ namespace AdventOfCode
                                 }
                                 else if (spaceCounter == 2)
                                 {
-                                    contain += c;
+                                    contain = new StringBuilder(contain).Append(c).ToString();
                                 }
                             }
                         }

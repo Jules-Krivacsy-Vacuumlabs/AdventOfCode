@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventOfCode
 {
@@ -8,7 +9,6 @@ namespace AdventOfCode
         private static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input24.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"Input\input24atest.txt");
             /*
             CENTRE IS 0,0
             se
@@ -83,7 +83,7 @@ namespace AdventOfCode
             Console.WriteLine(numberOfBlacks);
         }
 
-        private class Point
+        private class Point : IEquatable<Point>
         {
             public Point(int x, int y)
             {
@@ -94,19 +94,20 @@ namespace AdventOfCode
             public int X { get; set; }
             public int Y { get; set; }
 
-            public override int GetHashCode()
+            public bool Equals([AllowNull] Point other)
             {
-                return X * 100000 + Y;
+                return other != null && other.X == this.X && other.Y == this.Y;
             }
 
             public override bool Equals(object obj)
             {
-                return Equals(obj as Point);
+                Point other = (Point)obj;
+                return other != null && other.X == this.X && other.Y == this.Y;
             }
 
-            public bool Equals(Point obj)
+            public override int GetHashCode()
             {
-                return obj != null && obj.X == this.X && obj.Y == this.Y;
+                return X * 100000 + Y;
             }
         }
     }
