@@ -5,7 +5,7 @@ namespace AdventOfCode.Tests
     public class B13Tests
     {
         [Fact]
-        public void AoCB13_StateUnderTest_ExpectedBehavior()
+        public void AoCB13_Should()
         {
             // Arrange
             var b13 = new B13();
@@ -17,17 +17,19 @@ namespace AdventOfCode.Tests
             Assert.Equal(906332393333683, result);
         }
 
-        [Fact]
-        public void LCM_StateUnderTest_ExpectedBehavior()
+        [Theory]
+        [InlineData(0, 0, 0)]
+        [InlineData(1564, 49749, 3382932)]
+        public void LCM_Should(long a, long b, long expected)
         {
             // Arrange
             var b13 = new B13();
 
             // Act
+            var result = b13.LCM(a, b);
+
             // Assert
-            Assert.Equal(3382932, b13.LCM(1564, 49749));
-            Assert.Equal(0, b13.LCM(0, 0));
-            Assert.NotEqual(-1, b13.LCM(2, 1));
+            Assert.Equal(expected, result);
         }
     }
 }

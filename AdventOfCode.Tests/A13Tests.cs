@@ -7,12 +7,14 @@ namespace AdventOfCode.Tests
     public class A13Tests
     {
         [Fact]
-        public void TestMethod1()
+        public void Main_Should()
         {
             // Arrange
+            var expected = 2382;
             // Act
+            var result = A13.Main();
             // Assert
-            Assert.Equal(2382,A13.Main());
+            Assert.Equal(expected, result);
         }
     }
 }
