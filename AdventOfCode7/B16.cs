@@ -6,7 +6,7 @@ namespace AdventOfCode
 {
     internal class B16
     {
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input16.txt");
 
@@ -121,10 +121,6 @@ namespace AdventOfCode
                         }
                     }
                 }
-            }
-            foreach (var field in fields)
-            {
-                Console.WriteLine(field.Name + " " + field.FirstValidPositionIndex() + " Is it okey: " + field.CountValidPositions());
             }
             long ret = tickets[0][fields[0].FirstValidPositionIndex()];
             for (int i = 1; i < 6; i++)

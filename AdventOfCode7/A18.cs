@@ -7,7 +7,7 @@ namespace AdventOfCode
 {
     internal static class A18
     {
-        private static void Main()
+        internal static void Main()
         {
             //Changing comment
             string[] text = System.IO.File.ReadAllLines(@"Input\input18.txt");

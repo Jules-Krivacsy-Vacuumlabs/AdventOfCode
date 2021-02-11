@@ -6,7 +6,7 @@ namespace AdventOfCode
 {
     internal class A24
     {
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input24.txt");
             /*

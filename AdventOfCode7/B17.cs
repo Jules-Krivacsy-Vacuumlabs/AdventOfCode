@@ -6,7 +6,7 @@ namespace AdventOfCode
 {
     internal class B17
     {
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input17.txt");
             /*
@@ -25,11 +25,12 @@ namespace AdventOfCode
                 }
                 inputX++;
             }
-            Console.WriteLine("Day " + 0 + ": " + lastSpace.Count);
+
             //GAME OF LIFE
-            for (int time = 0; time <= 5; time++)
+            HashSet<Point4D> nextSpace = new HashSet<Point4D>();
+            for (int time = 0; time <= 4; time++)
             {
-                HashSet<Point4D> nextSpace = new HashSet<Point4D>();
+                nextSpace = new HashSet<Point4D>();
                 foreach (var point in lastSpace)
                 {
                     //26 check around point until exactly 2 or 3 active (0,3,4,5,6 black) to remain active
@@ -62,8 +63,8 @@ namespace AdventOfCode
                 }
 
                 lastSpace = nextSpace;
-                Console.WriteLine("Day " + (time + 1) + ": " + nextSpace.Count);
             }
+            Console.WriteLine("Day " + 5 + ": " + nextSpace.Count);
         }
 
         private static void PassiveToActive(HashSet<Point4D> lastSpace, HashSet<Point4D> nextSpace, Point4D passive)

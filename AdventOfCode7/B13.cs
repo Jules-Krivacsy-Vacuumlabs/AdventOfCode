@@ -1,49 +1,57 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode
 {
-    internal static class B13
+    public class B13
     {
-        private static void Main()
+        public long AoCB13()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input13.txt");
 
-            var x = text[1].Split(',')
-                    .Select((item, index) => (item, index))
-                    .Where(t => !t.item.Equals("x"))
-                    .Select(t => (long.Parse(t.item), t.index))
-                    .OrderByDescending(t => t.Item1)
-                    .ToList();
-
-            var timestamp = x.First().Item1 - x.First().index;
-            var period = x.First().Item1;
-            for (int busIndex = 1; busIndex <= x.Count; busIndex++)
+            var allBus = text[1].Split(",").ToArray();
+            List<(long id, int offset)> busses = new List<(long id, int offset)>();
+            for (int i = 0; i < allBus.Length; i++)
             {
-                while (x.Take(busIndex)
-                    .Any(t => (timestamp + t.index) % t.Item1 != 0))
+                if (allBus[i] != "x")
                 {
-                    timestamp += period;
+                    busses.Add((long.Parse(allBus[i]), i));
                 }
+            }
+            busses.Sort();
+            busses.Reverse();
+            long ret = busses[0].id - busses[0].offset;
+            List<long> periods = new List<long>
+            {
+                busses[0].id
+            };
+            for (int i = 0; i < busses.Count; i++)
+            {
+                bool found;
+                do
+                {
+                    found = true;
+                    for (int inn = 0; inn <= i; inn++)
+                    {
+                        if ((ret + busses[inn].offset) % busses[inn].id != 0)
+                        {
+                            found = false;
+                            break;
+                        }
+                    }
+                    if (!found)
+                        ret += periods.Last();
+                } while (!found);
 
-                period = x.Take(busIndex)
-                          .Select(t => t.Item1)
-                          .Aggregate(LCM);
+                periods.Add(LCM(periods.Last(), busses[i].id));
             }
 
-            var busses = text[1].Split(',')
-                    .Select((item, index) => (item, index))
-                    .Where(t => !t.item.Equals("x"))
-                    .Select(t => (long.Parse(t.item), t.index))
-                    .OrderByDescending(t => t.Item1)
-                    .ToList();
-
-            var periods = new int[busses.Count];
-
-            Console.WriteLine(periods);
+            Console.WriteLine(ret);
+            return ret;
         }
 
-        private static long LCM(long a, long b)
+        public long LCM(long a, long b)
         {
             long num1, num2;
             if (a > b)
@@ -62,6 +70,7 @@ namespace AdventOfCode
                     return i * num1;
                 }
             }
+
             return num2;
         }
     }

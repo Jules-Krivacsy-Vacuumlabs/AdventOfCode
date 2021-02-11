@@ -5,10 +5,10 @@ namespace AdventOfCode
 {
     internal static class B15
     {
-        private static void Main()
+        internal static void Main()
         {
             Dictionary<int, Point> mem;
-
+            Console.Write("Long calculation in progress...");
             mem = new Dictionary<int, Point>
             {
                 { 1, new Point(1) },
@@ -43,7 +43,7 @@ namespace AdventOfCode
 
                 if (turn == (30000000))
                 {
-                    Console.WriteLine(turn + " " + answer);
+                    Console.WriteLine("done.\n" + answer);
                     break;
                 }
                 last = answer;

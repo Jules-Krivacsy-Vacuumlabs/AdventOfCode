@@ -18,7 +18,7 @@ namespace AdventOfCode
             }
         }
 
-        private static void Main()
+        internal static void Main()
         {
             string target = "shiny gold";
             string[] text = System.IO.File.ReadAllLines(@"Input\input7.txt");

@@ -31,7 +31,7 @@ namespace AdventOfCode
             return ret.ToString();
         }
 
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input18.txt");
 
@@ -60,7 +60,6 @@ namespace AdventOfCode
                     }
                 }
                 spaceless = Solver(spaceless);
-                Console.WriteLine(spaceless);
                 ret += Convert.ToInt64(spaceless);
             }
             Console.WriteLine(ret);

@@ -2,9 +2,9 @@
 
 namespace AdventOfCode
 {
-    internal static class A13
+    public static class A13
     {
-        private static void Main()
+        public static int Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input13.txt");
 
@@ -29,6 +29,7 @@ namespace AdventOfCode
                 busCounter++;
             }
             Console.WriteLine(ret);
+            return ret;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace AdventOfCode
 {
     internal class B24
     {
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input24.txt");
             /*
@@ -91,9 +91,10 @@ namespace AdventOfCode
                 }
             }
             HashSet<Point> lastFloor = new HashSet<Point>(floor.Keys);
-            for (int time = 0; time <= 100; time++)
+            HashSet<Point> nextFloor = new HashSet<Point>();
+            for (int time = 0; time < 100; time++)
             {
-                HashSet<Point> nextFloor = new HashSet<Point>();
+                nextFloor = new HashSet<Point>();
                 foreach (var point in lastFloor)
                 {
                     //6 check around point until find zero or more than 2 (0,3,4,5,6 black) turn to white
@@ -121,8 +122,8 @@ namespace AdventOfCode
                 }
 
                 lastFloor = nextFloor;
-                Console.WriteLine("Day " + (time + 1) + ": " + nextFloor.Count);
             }
+            Console.WriteLine("Day " + (100) + ": " + nextFloor.Count);
         }
 
         private static void White2Black(HashSet<Point> lastFloor, HashSet<Point> nextFloor, Point point, int offsetX, int offsetY)

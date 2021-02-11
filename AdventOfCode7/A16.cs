@@ -4,7 +4,7 @@ namespace AdventOfCode
 {
     internal static class A16
     {
-        private static void Main()
+        internal static void Main()
         {
             string[] text = System.IO.File.ReadAllLines(@"Input\input16.txt");
 
@@ -23,15 +23,15 @@ namespace AdventOfCode
                     {
                         string part = line.Split(": ")[1];
                         string[] parts = part.Split(" or ");
-                        int a1 = Convert.ToInt32(parts[0].Split('-')[0]);
-                        int a2 = Convert.ToInt32(parts[0].Split('-')[1]);
-                        int b1 = Convert.ToInt32(parts[1].Split('-')[0]);
-                        int b2 = Convert.ToInt32(parts[1].Split('-')[1]);
-                        for (int i = a1; i <= a2; i++)
+                        int startA = Convert.ToInt32(parts[0].Split('-')[0]);
+                        int endA = Convert.ToInt32(parts[0].Split('-')[1]);
+                        int startB = Convert.ToInt32(parts[1].Split('-')[0]);
+                        int endB = Convert.ToInt32(parts[1].Split('-')[1]);
+                        for (int i = startA; i <= endA; i++)
                         {
                             valid[i]++;
                         }
-                        for (int i = b1; i <= b2; i++)
+                        for (int i = startB; i <= endB; i++)
                         {
                             valid[i]++;
                         }
