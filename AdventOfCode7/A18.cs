@@ -21,7 +21,7 @@ namespace AdventOfCode
                 while ((parts.Count != 0) && (i < parts.Count))
                 {
                     string lastNum = "";
-                    string currentNum = "";
+                    StringBuilder currentNumberSB = new StringBuilder("");
                     string lastOperator = "";
                     string rest = "";
                     foreach (char c in parts[i])
@@ -30,23 +30,23 @@ namespace AdventOfCode
                         {
                             if (Char.IsDigit(c))
                             {
-                                currentNum = new StringBuilder(currentNum).Append(c).ToString();
+                                currentNumberSB.Append(c);
                             }
                             else if (c == '+' || c == '*' || c == ')')
                             {
                                 if (lastNum == "")
                                 {
-                                    lastNum = currentNum;
+                                    lastNum = currentNumberSB.ToString();
                                 }
                                 else
                                 {
                                     if (lastOperator == "+")
                                     {
-                                        lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNum)).ToString();
+                                        lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNumberSB.ToString())).ToString();
                                     }
                                     else if (lastOperator == "*")
                                     {
-                                        lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNum)).ToString();
+                                        lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNumberSB.ToString())).ToString();
                                     }
                                 }
                                 if (c == ')')
@@ -58,7 +58,8 @@ namespace AdventOfCode
                                 {
                                     lastOperator = c.ToString();
                                 }
-                                currentNum = "";
+                                //currentNum = "";
+                                currentNumberSB.Clear();
                             }
                         }
                         else
@@ -69,15 +70,15 @@ namespace AdventOfCode
                     }
                     if (rest == "")
                     {
-                        if (currentNum != "")
+                        if (currentNumberSB.Length != 0)
                         {
                             if (lastOperator == "+")
                             {
-                                lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNum)).ToString();
+                                lastNum = (Convert.ToInt64(lastNum) + Convert.ToInt64(currentNumberSB.ToString())).ToString();
                             }
                             else if (lastOperator == "*")
                             {
-                                lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNum)).ToString();
+                                lastNum = (Convert.ToInt64(lastNum) * Convert.ToInt64(currentNumberSB.ToString())).ToString();
                             }
                             lastOperator = "";
                             if (parts.Count == 1)

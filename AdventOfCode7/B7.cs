@@ -27,9 +27,10 @@ namespace AdventOfCode
             foreach (string line in text)
             {
                 //dark olive
-                string container = line.Split(" bags contain ")[0];
+                var splits = line.Split(" bags contain ");
+                string container = splits[0];
                 //3 faded blue bags, 4 dotted black bags.
-                string part = line.Split(" bags contain ")[1];
+                string part = splits[1];
 
                 if (!part.Equals("no other bags."))
                 {
@@ -40,14 +41,15 @@ namespace AdventOfCode
                     foreach (string inside in parts)
                     {
                         string nameInside = "";
+                        StringBuilder sb = new StringBuilder(nameInside);
                         int numberInside = Convert.ToInt32(inside.Split(' ')[0]);
                         int spaceCounter = 0;
                         foreach (char c in inside)
                         {
                             if (Char.IsLetter(c))
                             {
-                                StringBuilder sb = new StringBuilder(nameInside);
-                                nameInside = sb.Append(c).ToString();
+
+                                sb.Append(c);
                             }
                             else if (c == ' ')
                             {
@@ -58,21 +60,15 @@ namespace AdventOfCode
                                 }
                                 else if (spaceCounter == 2)
                                 {
-                                    StringBuilder sb = new StringBuilder(nameInside);
-                                    nameInside = sb.Append(c).ToString();
+                                    sb.Append(c);
                                 }
                             }
                         }
-                        contains.Add(new InsideOfABag(nameInside, numberInside));
+                        contains.Add(new InsideOfABag(sb.ToString(), numberInside));
                     }
 
                     //build map
-                    List<InsideOfABag> temp = new List<InsideOfABag>();
-                    foreach (InsideOfABag item in contains)
-                    {
-                        temp.Add(item);
-                    }
-                    map.Add(container, temp);
+                    map.Add(container, contains);
                 }
             }
 

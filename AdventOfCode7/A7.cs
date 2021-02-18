@@ -28,12 +28,13 @@ namespace AdventOfCode
                     foreach (string inside in parts)
                     {
                         string contain = "";
+                        StringBuilder sb = new StringBuilder(contain);
                         int spaceCounter = 0;
                         foreach (char c in inside)
                         {
                             if (Char.IsLetter(c))
                             {
-                                contain = new StringBuilder(contain).Append(c).ToString();
+                                sb.Append(c);
                             }
                             else if (c == ' ')
                             {
@@ -44,11 +45,11 @@ namespace AdventOfCode
                                 }
                                 else if (spaceCounter == 2)
                                 {
-                                    contain = new StringBuilder(contain).Append(c).ToString();
+                                    sb.Append(c);
                                 }
                             }
                         }
-                        contains.Add(contain);
+                        contains.Add(sb.ToString());
                     }
 
                     //build map
